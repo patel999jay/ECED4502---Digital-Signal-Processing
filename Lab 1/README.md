@@ -1,3 +1,18 @@
+<table>
+  <tr>
+    <td> <img src="image/fig1.png" alt="1" width = 360px height = 640px> </td>
+    <td> <img src="image/fig2.png" alt="2" width = 360px height = 640px> </td>
+   </tr> 
+   <tr>
+    <td> <img src="image/fig3.png" alt="3" width = 360px height = 640px> </td>
+    <td> <img src="image/fig4.png" alt="4" width = 360px height = 640px> </td>
+  </tr>
+  <tr>
+  	<td> <img src="image/fig5.png" alt="5" width = 360px height = 640px> </td>
+  </tr>
+</table>
+
+
 ```matlab
 % ****************
 % * Windowing.m (Lab 1)*
