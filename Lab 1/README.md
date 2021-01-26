@@ -1,18 +1,4 @@
-<table>
-  <tr>
-    <td> <img src="image/Fig1.png" alt="1" > </td>
-    <td> <img src="image/Fig2.png" alt="2" > </td>
-   </tr> 
-   <tr>
-    <td> <img src="image/Fig3.png" alt="3" > </td>
-    <td> <img src="image/Fig4.png" alt="4" > </td>
-  </tr>
-  <tr>
-  	<td> <img src="image/Fig5.png" alt="5" > </td>
-  </tr>
-</table>
-
-
+### Code:
 ```matlab
 % ****************
 % * Windowing.m (Lab 1)*
@@ -86,3 +72,9 @@ title(['Magnitude spectrum of a ' num2str(f2) 'kHz sinusoid over a ' ...
         num2str(WindowLength2) ' ms window'])
 
 ```
+### Images:
+![picture alt](https://github.com/patel999jay/ECED4502---Digital-Signal-Processing/blob/main/Lab%201/image/Fig1.png "Title is optional")
+![picture alt](https://github.com/patel999jay/ECED4502---Digital-Signal-Processing/blob/main/Lab%201/image/Fig2.png "Title is optional")
+![picture alt](https://github.com/patel999jay/ECED4502---Digital-Signal-Processing/blob/main/Lab%201/image/Fig3.png "Title is optional")
+![picture alt](https://github.com/patel999jay/ECED4502---Digital-Signal-Processing/blob/main/Lab%201/image/Fig4.png "Title is optional")
+![picture alt](https://github.com/patel999jay/ECED4502---Digital-Signal-Processing/blob/main/Lab%201/image/Fig5.png "Title is optional")
