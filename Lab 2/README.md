@@ -13,7 +13,7 @@ GNU Radio is supported on almost all the major platforms:
   - [**`Mac`**](https://wiki.gnuradio.org/index.php/MacInstall) - Read this if you want to install in **Mac base systems**.
 
 # **New Installation!**
-----------------------------------------
+
 ## **Windows**
 [Download GR 3.8 Now **`(GR 3.8.2.0 py3.9)`** ](http://www.gcndevelopment.com/gnuradio/downloads/installers/v3.8.2.1/gnuradio_3.8.2.0_win64.msi)
 
