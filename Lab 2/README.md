@@ -81,7 +81,7 @@ Windows users will find that GNU Radio Companion can also be launched from the S
 GNU Radio will have access to the Python installed into the conda environment, and not any other installation. If you need specific Python packages to use with GNU Radio, just install them into the environment using conda install. As a last resort, `pip` or manual installation (`python setup.py install`) can also be used, but these will not be managed by conda and you'll have to be careful to manage your environment.
 
 ## **Amazing Resources**
-------------------------------------
+
 
 The recommended way to get started with GNU Radio is to read the [`Guided Tutorials`](https://wiki.gnuradio.org/index.php/Tutorials).
 | Link | DESCRIPTION |
