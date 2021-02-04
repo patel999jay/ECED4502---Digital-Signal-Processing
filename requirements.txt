@@ -3,4 +3,3 @@ matplotlib
 scikit-dsp-comm
 ipywidgets
 IPython
-mpl_toolkits
