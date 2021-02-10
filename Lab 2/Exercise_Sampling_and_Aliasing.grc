@@ -80,7 +80,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [648, 13]
+    coordinate: [521, 15]
     rotation: 0
     state: enabled
 - name: signal_freq
@@ -101,7 +101,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [485, 13]
+    coordinate: [359, 13]
     rotation: 0
     state: enabled
 - name: waveform
@@ -264,7 +264,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [512, 358]
+    coordinate: [527, 336]
     rotation: 0
     state: enabled
 - name: qtgui_sink_x_0
@@ -293,7 +293,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [514, 482]
+    coordinate: [525, 472]
     rotation: 0
     state: disabled
 - name: qtgui_time_sink_x_0
@@ -390,7 +390,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [511, 232]
+    coordinate: [528, 217]
     rotation: 0
     state: enabled
 
