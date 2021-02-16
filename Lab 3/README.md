@@ -268,3 +268,118 @@ b = signal.firwin(n, cutoff = 0.2, window = "hamming")
 plot_filterz(b)
 ```
 
+![Figure4.png](image/Fig4.png)
+<center><b> Figure 4 : Properties 100th order Hamming-window lowpass filter.</b></center>
+
+Figure 4 shows the time and frequency domain properties of 100th order Hamming lowpass filter. The amplitude response has sharp roll off and the phase is linear in the passband. There is mild overshoot in the step response. The roll off can be made almost arbitrarily sharp using even higher orders. If you need to filter frequency specific noise from a time domain signal a linear phase FIR filter is a good choice.
+
+### Use the filter and plot results.
+
+```python
+x = sin(linspace(0, 500, 1024)) + 0.5*cos(linspace(0, 750, 1024))
++ randn(1,1024)*0.2 + 0.2*cos(linspace(0, 10000, 1024));
+xfiltered = signal.lfilter(b, 1, x)
+plot(x[:200],'b', label = "Original signal")
+plot(xfiltered[:200], "--k", label = "Filtered signal");grid()
+legend()
+```
+![Figex.png](image/Figex.png)
+
+### IIR filters
+
+- IIR filters have infinite impulse response.
+- Recursion is used to compute the filtered signal.
+- They can also be used to design filters with frequency domain properties.
+- Overshoot in step response and ripple in passband.
+- Measured and previous filtered values are be used in the calculation.
+- Commonly used filters: Butterworth, Chebyshev, Elliptic.
+- The computation is very fast.
+- You can get zero phase response by using a IIR filter forward and backward
+
+Figure 5 shows the properties of 12th order Chebyshev II lowpass filter. The roll of is not as sharp as for the FIR filter in Figure 4 and there is more overshoot in the step response. The filter however has only 12 coefficients instead of 100 of the FIR filter making it considerably more efficient computationally.
+
+The properties of 12th order Butterworth filter (which less aggressive IIR filter) are shown in Figure 6 . It has smooth roll of and doesn’t overshoot as much making it a better candidate for time domain applications.
+
+## IIR filters with SciPy
+The list IIR filters that can be designed with SciPy can be found from scipy.signal documentation. Here are a few examples:
+
+Design 12th order chebyshev lowpass filter with stopband attenuation of 80dB filter stopband is set to 0.2 which means $0.2*0.5* $samplerate ( Figure 5 ).
+
+```python
+from scipy import signal
+[b, a] = signal.cheby2(12, 80, 0.2)
+plot_filterz(b,a)
+```
+![Figure5.png](image/Fig5.png)
+<center><b> Figure 5 : Properties 12th order Chebyshev II lowpass filter </b></center>
+
+Design 12th order lowpass butterworth filter with stopband at 0.2 in Figure 6 .
+
+```python
+[b, a] = signal.butter(12, 0.2);
+plot_filterz(b, a)
+```
+![Figure6.png](image/Fig6.png)
+<center><b> Figure 6 : Filter properties for a 12th order lowpass butterworth filter </b></center>
+
+The above commands are similar to the ones found from MATLAB, there is also another option: iirdesign command. Some examples.
+
+**Let’s define 2 filters and plot their amplitude response: Elliptic bandpass filter and chebyshev I highpass filter. Parameter wp defines the pass band and ws defines the stop band.**
+
+```python
+be, ae = signal.iirdesign(wp = [0.05, 0.3], ws= [0.02, 0.35],
+                       gstop= 60, gpass=1, ftype='ellip')
+plot_freqz(be,ae);plt.grid()
+```
+![Figureex1.png](image/Figex1.png)
+<center><b> Figure 7 : Elliptic bandpass filter </b></center>
+
+```python
+bb, ab = signal.iirdesign(wp = 0.3, ws= 0.2,
+                       gstop= 60, gpass=1, ftype='cheby1')
+plot_freqz(bb,ab);plt.grid()
+```
+![Figureex2.png](image/Figex2.png)
+<center><b> Figure 8 : Chebyshev I high pass filter </b></center>
+
+### Filtering example
+Here is an example of using different filters on signal Figure 9(a). We can see that the signal is contaminated with noise, but we don’t know if it is white noise or if it has a specific frequency.
+
+![xshort.png](image/xshort.png)
+<center><b> Figure 9 : Signals in time domain </b></center>
+
+We start the analysis by plotting the periodogram of the signal ( Figure 10(a)). It reveals that there is high frequency noise at around 0.9. (The unit is relative to $0.5*$sampling rate, 0.9 becomes $0.9*0.5*$sample rate in actual units) and the interesting frequencies are clearly below 0.4. This means we can use a lowpass filter with stopband at 0.4 to remove the noise.
+
+Figures 9 and 10 show the effect of using 100th order FIR hamming filter to the time domain signal and the PSD. Also the effect of 5 point moving average filter is shown for reference. The FIR filter is clearly the right choice for this signal, it preserves the time domain features nicely ( Beware of small phase shift for time critical applications ) and completely eliminates the high frequency noise. The moving average fails to remove the high frequency noise, but “cuts” the peaks from decreasing the amplitude.
+
+![spectra.png](image/spectra.png)
+<center><b> Figure 10 : Signals in frequency domain </b></center>
+
+### Modifying sample rate
+
+The sampling rate of a digital signal can be changed computationally. There are two basic operations:
+
+**Decimation** is used to lower to sample rate. The operation uses an antialising filter to make sure there aren’t too high frequency components in the downsampled signal. signal.decimate in SciPy.
+
+**Interpolation** Increases the sampling rate of the signal It is mainly used for digital to analog conversion to get more continuous results for e.g. audio.
+
+**NOTE: Interpolation doesn’t fix too low sample rate.**
+
+###  Detrending
+
+Detrending means removing the slowly changing trends from a higher frequency signal. It is required for spectral analysis and can also be used to remove the effect of sensor drift from time domain measurements.
+
+**Some methods for detrending are:**
+
+- Subtracting the moving average or moving median from the signal.
+- Fitting a polynomial model to the data and working with residuals.
+- Using a highpass filter.
+
+###  Exercises
+
+1. When would you use a moving average filter?
+2. What are the advantages of IIR filters over FIR filters and vice versa?
+3. How can you check if the noise in a signal is random noise?
+
+## Reference :
+1. Matti Pastell, "[PyAgEng](http://pyageng.mpastell.com/book/index.html)", 2016.
