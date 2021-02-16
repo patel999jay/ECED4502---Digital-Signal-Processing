@@ -147,12 +147,7 @@ A decibel is dimensionless unit that compares the ratio of numbers in logarithmi
 
 In signal processing we are usually interested in the amplitude ratio of two signals. Usually before and after filtering.
 
-\begin{equation}
-\begin{aligned}
-Power : dB = 10 \log_{10}{\frac{P2}{P1}} \\
-Amplitude : dB = \log_{20}{\frac{A2}{A1}}
-\end{aligned}
-\end{equation}
+![eqn1.png](image/eqn1.png)
 
 --------------------------------
  | **dB Scale** | **Linear Scale** |
@@ -173,7 +168,8 @@ Amplitude : dB = \log_{20}{\frac{A2}{A1}}
 
 The commonly used variant is the central moving average, here is how you calculate it for 5 points:
 
-$$\mathbf{y_{t} = \frac{x_{t-2} + x_{t-1} + x_{t} + x_{t+1} + x_{t+2}}{5}}$$
+![eqn2.png](image/eqn2.png)
+
 
 where $y_t$ is $t^{th}$ of the filtered signal and $x$ is the original signal.
 
