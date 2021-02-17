@@ -149,19 +149,12 @@ A decibel is dimensionless unit that compares the ratio of numbers in logarithmi
 
 In signal processing we are usually interested in the amplitude ratio of two signals. Usually before and after filtering.
 
-![eqn1.png](image/eqn1.png)
 
-<table>
-    <thead>
-        <tr>
-            <th style="text-align:center;"><b> Table 1: Amplitude ratio </center></b></th>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+| ![eqn1.png](image/eqn1.png) |
+| :--: |
+| <center><b> Table 1: Amplitude ratio </center></b> |
+|  |
 
- 
  ## Moving average filter
 
 **Moving average** is a simple lowpass filter. It replaces samples with the average of n samples.
