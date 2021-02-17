@@ -151,19 +151,7 @@ In signal processing we are usually interested in the amplitude ratio of two sig
 
 ![eqn1.png](image/eqn1.png)
 
-
---------------------------------
- | **dB Scale** | **Linear Scale** |
- | -------------|--------------|
- | 60 dB | 1000 |
- | 40 dB | 100 |
- | 20 dB | 10 |
- | 0 dB | 1 |
- | -20 dB | 0.2 |
- | -40 dB | 0.01 | 
- | -60 dB | 0.001 |
-
- <table>
+<table>
     <thead>
         <tr>
             <th style="text-align:center;"><b> Table 1: Amplitude ratio </center></b></th>
