@@ -162,7 +162,7 @@ In signal processing we are usually interested in the amplitude ratio of two sig
  | -40 dB | 0.01 | 
  | -60 dB | 0.001 |
  
- <center><b> Table 8.1: Amplitude ratio </center></b>
+ <center><b> Table 1: Amplitude ratio </center></b>
  
  ## Moving average filter
 
@@ -179,11 +179,9 @@ where $y_t$ is $t^{th}$ of the filtered signal and $x$ is the original signal.
 Moving average is an optimal filter for time domain signals that contain white noise. For noise with specific frequency you can get better performance with FIR or IIR filters.
 
 | ![dsp_ma_example_1.png](image/dsp_ma_example_1.png) |
-| <center><b> Figure 2 : Comparison of moving average filters of different length with median filter for a ramp signal with random noise. </center></b> |
 | :--: |
-
-![dsp_ma_example_1.png](image/dsp_ma_example_1.png)
-<center><b> Figure 2 : Comparison of moving average filters of different length with median filter for a ramp signal with random noise. </center></b>
+| <center><b> Figure 2 : Comparison of moving average filters of different length with median filter for a ramp signal with random noise. </center></b> |
+|  |
 
 Figure 2 shows the effect of number of points used in filtering a signal. Greater number of points provides smoother result, but it also “cuts the corners” of the signal. Finding the correct number of points for each case is done using experimentation and plotting the original signal and filtered signal to the same plot and zooming close enough to rapid changes helps in the process.
 
@@ -204,8 +202,12 @@ Figure 3 was created using following python code using the functions we defined 
 b = np.repeat(1.0/11, 11)
 plot_filterz(b)
 ```
-![dsp_ma_properties_1.png](image/dsp_ma_properties_2.png)
-<center><b> Figure 3 : Properties of 11 point moving average filter. </center></b>
+
+| ![dsp_ma_properties_1.png](image/dsp_ma_properties_2.png) |
+| :--: |
+| <center><b> Figure 3 : Properties of 11 point moving average filter. </center></b> |
+|  |
+
 
 ## Median filter
 
@@ -247,7 +249,10 @@ ax4.plot(ymed11, 'k')
 ax4.set_title("b) Median filter n = 31");ax4.grid()
 subplots_adjust(hspace=0.4)
 ```
-![dsp_ma_example_1.png](image/dsp_ma_example_1.png)
+| ![dsp_ma_example_1.png](image/dsp_ma_example_1.png) |
+| :--: |
+|  |
+
 
 ## FIR filters
 
@@ -269,9 +274,10 @@ b = signal.firwin(n, cutoff = 0.2, window = "hamming")
 #Plot properties
 plot_filterz(b)
 ```
-
-![Figure4.png](image/Fig4.png)
-<center><b> Figure 4 : Properties 100th order Hamming-window lowpass filter.</b></center>
+| ![Figure4.png](image/Fig4.png) |
+| :--: |
+| <center><b> Figure 4 : Properties 100th order Hamming-window lowpass filter.</b></center> |
+|  |
 
 Figure 4 shows the time and frequency domain properties of 100th order Hamming lowpass filter. The amplitude response has sharp roll off and the phase is linear in the passband. There is mild overshoot in the step response. The roll off can be made almost arbitrarily sharp using even higher orders. If you need to filter frequency specific noise from a time domain signal a linear phase FIR filter is a good choice.
 
@@ -312,8 +318,10 @@ from scipy import signal
 [b, a] = signal.cheby2(12, 80, 0.2)
 plot_filterz(b,a)
 ```
-![Figure5.png](image/Fig5.png)
-<center><b> Figure 5 : Properties 12th order Chebyshev II lowpass filter </b></center>
+| ![Figure5.png](image/Fig5.png) |
+| :--: |
+| <center><b> Figure 5 : Properties 12th order Chebyshev II lowpass filter </b></center> |
+|  |
 
 Design 12th order lowpass butterworth filter with stopband at 0.2 in Figure 6 .
 
@@ -321,8 +329,10 @@ Design 12th order lowpass butterworth filter with stopband at 0.2 in Figure 6 .
 [b, a] = signal.butter(12, 0.2);
 plot_filterz(b, a)
 ```
-![Figure6.png](image/Fig6.png)
-<center><b> Figure 6 : Filter properties for a 12th order lowpass butterworth filter </b></center>
+| ![Figure6.png](image/Fig6.png) |
+| :--: |
+| <center><b> Figure 6 : Filter properties for a 12th order lowpass butterworth filter </b></center> |
+|  |
 
 The above commands are similar to the ones found from MATLAB, there is also another option: iirdesign command. Some examples.
 
@@ -333,29 +343,41 @@ be, ae = signal.iirdesign(wp = [0.05, 0.3], ws= [0.02, 0.35],
                        gstop= 60, gpass=1, ftype='ellip')
 plot_freqz(be,ae);plt.grid()
 ```
-![Figureex1.png](image/Figex1.png)
-<center><b> Figure 7 : Elliptic bandpass filter </b></center>
+| ![Figureex1.png](image/Figex1.png) |
+| :--: |
+| <center><b> Figure 7 : Elliptic bandpass filter </b></center> |
+|  |
+
 
 ```python
 bb, ab = signal.iirdesign(wp = 0.3, ws= 0.2,
                        gstop= 60, gpass=1, ftype='cheby1')
 plot_freqz(bb,ab);plt.grid()
 ```
-![Figureex2.png](image/Figex2.png)
-<center><b> Figure 8 : Chebyshev I high pass filter </b></center>
+| ![Figureex2.png](image/Figex2.png) |
+| :--: |
+| <center><b> Figure 8 : Chebyshev I high pass filter </b></center> |
+|  |
+
 
 ### Filtering example
 Here is an example of using different filters on signal Figure 9(a). We can see that the signal is contaminated with noise, but we don’t know if it is white noise or if it has a specific frequency.
 
-![xshort.png](image/xshort.png)
-<center><b> Figure 9 : Signals in time domain </b></center>
+| ![xshort.png](image/xshort.png) |
+| :--: |
+| <center><b> Figure 9 : Signals in time domain </b></center> |
+|  |
+
 
 We start the analysis by plotting the periodogram of the signal ( Figure 10(a)). It reveals that there is high frequency noise at around 0.9. (The unit is relative to $0.5*$sampling rate, 0.9 becomes $0.9*0.5*$sample rate in actual units) and the interesting frequencies are clearly below 0.4. This means we can use a lowpass filter with stopband at 0.4 to remove the noise.
 
 Figures 9 and 10 show the effect of using 100th order FIR hamming filter to the time domain signal and the PSD. Also the effect of 5 point moving average filter is shown for reference. The FIR filter is clearly the right choice for this signal, it preserves the time domain features nicely ( Beware of small phase shift for time critical applications ) and completely eliminates the high frequency noise. The moving average fails to remove the high frequency noise, but “cuts” the peaks from decreasing the amplitude.
 
-![spectra.png](image/spectra.png)
-<center><b> Figure 10 : Signals in frequency domain </b></center>
+| ![spectra.png](image/spectra.png) |
+| :--: |
+| <center><b> Figure 10 : Signals in frequency domain </b></center> |
+|  |
+
 
 ### Modifying sample rate
 
