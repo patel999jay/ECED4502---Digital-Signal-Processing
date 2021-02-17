@@ -39,8 +39,9 @@ The frequency response of a filter can be obtained from its impulse response by 
 Every filter causes some amount of distortion to filtered signal. It is important to be aware of the properties of the filter you use.
 
 | ![fprop.png](image/f_properties.png) |
-| <center><b> Figure 1 : Filter terminology for step and amplitude response. 100th order Blackman FIR lowpass filter. </center></b> |
 | :--: |
+| <center><b> Figure 1 : Filter terminology for step and amplitude response. 100th order Blackman FIR lowpass filter. </center></b> |
+|  |
 
 The properties of a filter are characterized by the following concepts and Figure 1
 
