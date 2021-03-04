@@ -18,6 +18,15 @@ Filtering aims to remove unwanted noise from a signal or separate several source
 - **Highpass filter** is used to remove low frequencies.
 - **Bandpass filter** is used to remove low and high frequencies.
 - **Bandreject filter** is used to remove a certain frequency band between low and high frequencies.
+
+# GRC Flowgraph 
+
+![png](GNURadio/Filter_Introduction.png)
+
+## GRC GUI
+
+![png](GNURadio/filter_taps_Introduction_GUI.PNG)
+
  
 #### Ideal filters
 
