@@ -49,7 +49,7 @@ blocks:
   parameters:
     comment: BP_lower_cutoff
     gui_hint: ''
-    label: bp_high
+    label: BP High-cutoff
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: int
@@ -82,7 +82,7 @@ blocks:
   parameters:
     comment: BP_lower_cutoff
     gui_hint: ''
-    label: bp_low
+    label: BP Low-cutoff
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: int
@@ -95,7 +95,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1296, 156.0]
+    coordinate: [1304, 156.0]
     rotation: 0
     state: enabled
 - name: bp_taps
@@ -165,7 +165,7 @@ blocks:
   parameters:
     comment: High-pass cutoff
     gui_hint: ''
-    label: hp_cutoff
+    label: HP Cutoff
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: int
@@ -178,7 +178,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1296, 12.0]
+    coordinate: [1304, 12.0]
     rotation: 0
     state: enabled
 - name: hp_taps
@@ -241,7 +241,7 @@ blocks:
   parameters:
     comment: Low-pass cutoff
     gui_hint: ''
-    label: lp_cutoff
+    label: LP Cutoff
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: int
@@ -339,7 +339,7 @@ blocks:
   parameters:
     comment: transition_width
     gui_hint: ''
-    label: transition_width
+    label: Transition width
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: int
