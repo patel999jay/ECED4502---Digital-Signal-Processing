@@ -1,0 +1,599 @@
+options:
+  parameters:
+    author: Jay Patel
+    category: Custom
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: FIR Filter Introduction
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: filter_taps
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: Filter Introduction
+    window_size: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [10, 10]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: BP_Filter_Taps
+  id: variable_qtgui_label
+  parameters:
+    comment: BP_GUI_Label
+    formatter: None
+    gui_hint: 4,1,1,1
+    label: BP Filter Taps
+    type: real
+    value: len(firdes.high_pass(1, samp_rate, hp_cutoff, transition, firdes.WIN_HAMMING,
+      6.76))
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1304, 428.0]
+    rotation: 0
+    state: true
+- name: HP_Filter_Taps
+  id: variable_qtgui_label
+  parameters:
+    comment: HP_GUI_Label
+    formatter: None
+    gui_hint: 4,0,1,1
+    label: HP Filter Taps
+    type: real
+    value: len(firdes.high_pass(1, samp_rate, hp_cutoff, transition, firdes.WIN_HAMMING,
+      6.76))
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1176, 428.0]
+    rotation: 0
+    state: true
+- name: LP_Filter_Taps
+  id: variable_qtgui_label
+  parameters:
+    comment: LP_GUI_Label
+    formatter: None
+    gui_hint: 3,1,1,1
+    label: LP Filter Taps
+    type: int
+    value: len(firdes.low_pass(1, samp_rate, lp_cutoff, transition, firdes.WIN_RECTANGULAR,
+      6.76))
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1048, 428.0]
+    rotation: 0
+    state: true
+- name: bp_high
+  id: variable_qtgui_range
+  parameters:
+    comment: BP_lower_cutoff
+    gui_hint: 1,1,1,1
+    label: BP High-cutoff
+    min_len: '200'
+    orient: Qt.Horizontal
+    rangeType: int
+    start: '9000'
+    step: '1000'
+    stop: '15000'
+    value: '10000'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1312, 12.0]
+    rotation: 0
+    state: enabled
+- name: bp_low
+  id: variable_qtgui_range
+  parameters:
+    comment: BP_lower_cutoff
+    gui_hint: 1,0,1,1
+    label: BP Low-cutoff
+    min_len: '200'
+    orient: Qt.Horizontal
+    rangeType: int
+    start: '1000'
+    step: '1000'
+    stop: '8000'
+    value: '6000'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1184, 12.0]
+    rotation: 0
+    state: enabled
+- name: bp_taps_value
+  id: variable
+  parameters:
+    comment: "Printing\nBand Pass \ncoefficient"
+    value: 'print("\nThis is Band Pass coefficient : \t", firdes.band_pass(1.0, samp_rate,
+      bp_low, bp_high, transition, firdes.WIN_HAMMING, 6.76))'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1304, 300.0]
+    rotation: 0
+    state: enabled
+- name: bp_taps_value_no_0
+  id: variable
+  parameters:
+    comment: 'Displaying
+
+      No of taps
+
+      (BP)'
+    value: print("\nThis is number of Band pass filter taps:- \t",len(firdes.band_pass(1.0,
+      samp_rate, bp_low, bp_high, transition, firdes.WIN_HAMMING, 6.76)))
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1304, 196.0]
+    rotation: 0
+    state: enabled
+- name: hp_cutoff
+  id: variable_qtgui_range
+  parameters:
+    comment: High-pass cutoff
+    gui_hint: 0,1,1,1
+    label: HP Cutoff
+    min_len: '200'
+    orient: Qt.Horizontal
+    rangeType: int
+    start: '1000'
+    step: '1000'
+    stop: '15000'
+    value: '2000'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1056, 12.0]
+    rotation: 0
+    state: enabled
+- name: hp_taps_value
+  id: variable
+  parameters:
+    comment: "Printing\nHigh Pass \ncoefficient"
+    value: 'print("\nThis is High Pass coefficient : \t",firdes.high_pass(1, self.samp_rate,
+      self.hp_cutoff, self.transition, firdes.WIN_HAMMING, 6.76))'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1176, 300.0]
+    rotation: 0
+    state: enabled
+- name: hp_taps_value_no
+  id: variable
+  parameters:
+    comment: 'Displaying
+
+      No of taps
+
+      (HP)'
+    value: print("\nThis is number of High pass filter taps :- \t",len(firdes.high_pass(1,
+      self.samp_rate, self.hp_cutoff, self.transition, firdes.WIN_HAMMING, 6.76)))
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1176, 196.0]
+    rotation: 0
+    state: enabled
+- name: len_taps
+  id: variable
+  parameters:
+    comment: 'Display the number
+
+      of taps (coefficients)'
+    value: len(firdes.low_pass(1, samp_rate, lp_cutoff, transition, firdes.WIN_RECTANGULAR,
+      6.76))
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 12.0]
+    rotation: 0
+    state: disabled
+- name: lp_cutoff
+  id: variable_qtgui_range
+  parameters:
+    comment: Low-pass cutoff
+    gui_hint: 0,0,1,1
+    label: LP Cutoff
+    min_len: '200'
+    orient: Qt.Horizontal
+    rangeType: int
+    start: '1000'
+    step: '1000'
+    stop: '16000'
+    value: '14000'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [936, 12.0]
+    rotation: 0
+    state: enabled
+- name: lp_taps_value
+  id: variable
+  parameters:
+    comment: "Printing\nLow Pass \ncoefficient"
+    value: 'print("\nThis is Low Pass coefficient : \t",firdes.low_pass(1, self.samp_rate,
+      self.lp_cutoff, self.transition, firdes.WIN_RECTANGULAR, 6.76))'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1048, 300.0]
+    rotation: 0
+    state: enabled
+- name: lp_taps_value_no
+  id: variable
+  parameters:
+    comment: 'Displaying
+
+      No of taps
+
+      (LP)'
+    value: print("\nThis is number of Low pass filter taps :- \t",len(firdes.low_pass(1,
+      self.samp_rate, self.lp_cutoff, self.transition, firdes.WIN_RECTANGULAR, 6.76)))
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1048, 196.0]
+    rotation: 0
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '32000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 124.0]
+    rotation: 0
+    state: enabled
+- name: sps
+  id: variable
+  parameters:
+    comment: ''
+    value: '2'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 252.0]
+    rotation: 0
+    state: enabled
+- name: sym_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: samp_rate/sps
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 188.0]
+    rotation: 0
+    state: enabled
+- name: transition
+  id: variable_qtgui_range
+  parameters:
+    comment: transition_width
+    gui_hint: 3,0,1,1
+    label: Transition width
+    min_len: '200'
+    orient: Qt.Horizontal
+    rangeType: int
+    start: '500'
+    step: '100'
+    stop: '15000'
+    value: '2000'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [800, 12.0]
+    rotation: 0
+    state: enabled
+- name: analog_fastnoise_source_x_0
+  id: analog_fastnoise_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    amp: '1'
+    comment: Signal Source
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    noise_type: analog.GR_GAUSSIAN
+    samples: '8192'
+    seed: '0'
+    type: float
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [16, 348.0]
+    rotation: 0
+    state: enabled
+- name: band_pass_filter_0
+  id: band_pass_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: Band-Pass Filter
+    decim: '1'
+    gain: '1'
+    high_cutoff_freq: bp_high
+    interp: '1'
+    low_cutoff_freq: bp_low
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: fir_filter_fff
+    width: transition
+    win: firdes.WIN_HANN
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [416, 300.0]
+    rotation: 0
+    state: true
+- name: band_reject_filter_0
+  id: band_reject_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: Band-Reject Filter
+    decim: '1'
+    gain: '1'
+    high_cutoff_freq: bp_high
+    interp: '1'
+    low_cutoff_freq: bp_low
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: fir_filter_fff
+    width: transition
+    win: firdes.WIN_BLACKMAN
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [560, 412.0]
+    rotation: 0
+    state: true
+- name: blocks_null_sink_0
+  id: blocks_null_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    bus_structure_sink: '[[0,],]'
+    comment: ''
+    num_inputs: '1'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1344, 560.0]
+    rotation: 0
+    state: true
+- name: blocks_null_source_0
+  id: blocks_null_source
+  parameters:
+    affinity: ''
+    alias: ''
+    bus_structure_source: '[[0,],]'
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_outputs: '1'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1048, 560.0]
+    rotation: 0
+    state: true
+- name: blocks_throttle_0
+  id: blocks_throttle
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1176, 556.0]
+    rotation: 0
+    state: true
+- name: high_pass_filter_0
+  id: high_pass_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: High-pass filter
+    cutoff_freq: hp_cutoff
+    decim: '1'
+    gain: '1'
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: fir_filter_fff
+    width: transition
+    win: firdes.WIN_HAMMING
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [552, 188.0]
+    rotation: 0
+    state: true
+- name: low_pass_filter_0
+  id: low_pass_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: Low-pass filter
+    cutoff_freq: lp_cutoff
+    decim: '1'
+    gain: '1'
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: fir_filter_fff
+    width: transition
+    win: firdes.WIN_RECTANGULAR
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [416, 68.0]
+    rotation: 0
+    state: true
+- name: qtgui_freq_sink_x_0
+  id: qtgui_freq_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '0.9'
+    alpha10: '1.0'
+    alpha2: '0.9'
+    alpha3: '0.9'
+    alpha4: '0.9'
+    alpha5: '0.9'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    average: '0.2'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"magenta"'
+    color6: '"black"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: GUI
+    ctrlpanel: 'True'
+    fc: '0'
+    fftsize: '4096'
+    freqhalf: 'False'
+    grid: 'True'
+    gui_hint: 2,0,1,2
+    label: Relative Gain
+    label1: Low-pass
+    label10: ''
+    label2: High-pass
+    label3: Band-pass
+    label4: Band-reject
+    label5: RRC
+    label6: Custom Low Pass Filter
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    nconnections: '4'
+    showports: 'True'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_tag: '""'
+    type: float
+    units: dB
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    wintype: firdes.WIN_BLACKMAN_hARRIS
+    ymax: '10'
+    ymin: '-140'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [832, 216.0]
+    rotation: 0
+    state: enabled
+
+connections:
+- [analog_fastnoise_source_x_0, '0', band_pass_filter_0, '0']
+- [analog_fastnoise_source_x_0, '0', band_reject_filter_0, '0']
+- [analog_fastnoise_source_x_0, '0', high_pass_filter_0, '0']
+- [analog_fastnoise_source_x_0, '0', low_pass_filter_0, '0']
+- [band_pass_filter_0, '0', qtgui_freq_sink_x_0, '2']
+- [band_reject_filter_0, '0', qtgui_freq_sink_x_0, '3']
+- [blocks_null_source_0, '0', blocks_throttle_0, '0']
+- [blocks_throttle_0, '0', blocks_null_sink_0, '0']
+- [high_pass_filter_0, '0', qtgui_freq_sink_x_0, '1']
+- [low_pass_filter_0, '0', qtgui_freq_sink_x_0, '0']
+
+metadata:
+  file_format: 1
