@@ -399,6 +399,12 @@ Detrending means removing the slowly changing trends from a higher frequency sig
 - Fitting a polynomial model to the data and working with residuals.
 - Using a highpass filter.
 
+**Tip :** ;) You read this far, so here is tip for you.
+
+**Easiest way to design a filter:** 
+1. Open GNURadio.
+2. Go to **Menubar** -> Click on the **Tools** -> then click on **Filter Design Tool**.
+
 ###  Exercises
 
 1. When would you use a moving average filter?
