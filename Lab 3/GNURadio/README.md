@@ -4,4 +4,4 @@
 
 ## GRC GUI
 
-![png](filter_taps_Introduction_GUI.PNG)
+![png](Filter_Design_GUI.png)
