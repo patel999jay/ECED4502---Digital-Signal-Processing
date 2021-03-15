@@ -37,16 +37,33 @@ blocks:
   parameters:
     comment: BP_GUI_Label
     formatter: None
-    gui_hint: 4,1,1,1
-    label: BP Filter Taps
-    type: real
-    value: len(firdes.high_pass(1, samp_rate, hp_cutoff, transition, firdes.WIN_HAMMING,
+    gui_hint: 5,0,1,1
+    label: BP Filter Taps (Rectangular window)
+    type: int
+    value: len(firdes.band_pass(1.0, samp_rate, bp_low, bp_high, transition, firdes.WIN_RECTANGULAR,
       6.76))
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1304, 428.0]
+    coordinate: [1329, 429]
+    rotation: 0
+    state: true
+- name: BS_Filter_Taps_0
+  id: variable_qtgui_label
+  parameters:
+    comment: BS_GUI_Label
+    formatter: None
+    gui_hint: 5,1,1,1
+    label: BS Filter Taps (Hanning window)
+    type: int
+    value: len(firdes.band_reject(1.0, samp_rate, bp_low, bp_high, transition, firdes.WIN_HANN,
+      6.76))
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1489, 428]
     rotation: 0
     state: true
 - name: HP_Filter_Taps
@@ -54,10 +71,10 @@ blocks:
   parameters:
     comment: HP_GUI_Label
     formatter: None
-    gui_hint: 4,0,1,1
-    label: HP Filter Taps
-    type: real
-    value: len(firdes.high_pass(1, samp_rate, hp_cutoff, transition, firdes.WIN_HAMMING,
+    gui_hint: 4,1,1,1
+    label: HP Filter Taps (Blackman window)
+    type: int
+    value: len(firdes.high_pass(1, samp_rate, hp_cutoff, transition, firdes.WIN_BLACKMAN,
       6.76))
   states:
     bus_sink: false
@@ -71,10 +88,10 @@ blocks:
   parameters:
     comment: LP_GUI_Label
     formatter: None
-    gui_hint: 3,1,1,1
-    label: LP Filter Taps
+    gui_hint: 4,0,1,1
+    label: LP Filter Taps (Hamming window)
     type: int
-    value: len(firdes.low_pass(1, samp_rate, lp_cutoff, transition, firdes.WIN_RECTANGULAR,
+    value: len(firdes.low_pass(1, samp_rate, lp_cutoff, transition, firdes.WIN_HAMMING,
       6.76))
   states:
     bus_sink: false
@@ -95,7 +112,7 @@ blocks:
     start: '9000'
     step: '1000'
     stop: '15000'
-    value: '10000'
+    value: '11000'
     widget: counter_slider
   states:
     bus_sink: false
@@ -116,7 +133,7 @@ blocks:
     start: '1000'
     step: '1000'
     stop: '8000'
-    value: '6000'
+    value: '5000'
     widget: counter_slider
   states:
     bus_sink: false
@@ -130,12 +147,12 @@ blocks:
   parameters:
     comment: "Printing\nBand Pass \ncoefficient"
     value: 'print("\nThis is Band Pass coefficient : \t", firdes.band_pass(1.0, samp_rate,
-      bp_low, bp_high, transition, firdes.WIN_HAMMING, 6.76))'
+      bp_low, bp_high, transition, firdes.WIN_RECTANGULAR, 6.76))'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1304, 300.0]
+    coordinate: [1311, 302]
     rotation: 0
     state: enabled
 - name: bp_taps_value_no_0
@@ -147,12 +164,42 @@ blocks:
 
       (BP)'
     value: print("\nThis is number of Band pass filter taps:- \t",len(firdes.band_pass(1.0,
-      samp_rate, bp_low, bp_high, transition, firdes.WIN_HAMMING, 6.76)))
+      samp_rate, bp_low, bp_high, transition, firdes.WIN_RECTANGULAR, 6.76)))
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1304, 196.0]
+    coordinate: [1338, 196]
+    rotation: 0
+    state: enabled
+- name: bs_taps_value_0
+  id: variable
+  parameters:
+    comment: "Printing\nBand Stop \ncoefficient"
+    value: 'print("\nThis is Band Stop coefficient : \t", firdes.band_reject(1.0,
+      samp_rate, bp_low, bp_high, transition, firdes.WIN_HANN, 6.76))'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1448, 300]
+    rotation: 0
+    state: enabled
+- name: bs_taps_value_no_0_0
+  id: variable
+  parameters:
+    comment: 'Displaying
+
+      No of taps
+
+      (BS)'
+    value: print("\nThis is number of Band Stop filter taps:- \t",len(firdes.band_reject(1.0,
+      samp_rate, bp_low, bp_high, transition, firdes.WIN_HANN, 6.76)))
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1516, 194]
     rotation: 0
     state: enabled
 - name: hp_cutoff
@@ -167,7 +214,7 @@ blocks:
     start: '1000'
     step: '1000'
     stop: '15000'
-    value: '2000'
+    value: '7000'
     widget: counter_slider
   states:
     bus_sink: false
@@ -180,8 +227,8 @@ blocks:
   id: variable
   parameters:
     comment: "Printing\nHigh Pass \ncoefficient"
-    value: 'print("\nThis is High Pass coefficient : \t",firdes.high_pass(1, self.samp_rate,
-      self.hp_cutoff, self.transition, firdes.WIN_HAMMING, 6.76))'
+    value: 'print("\nThis is High Pass coefficient : \t",firdes.high_pass(1, samp_rate,
+      hp_cutoff, transition, firdes.WIN_BLACKMAN, 6.76))'
   states:
     bus_sink: false
     bus_source: false
@@ -198,7 +245,7 @@ blocks:
 
       (HP)'
     value: print("\nThis is number of High pass filter taps :- \t",len(firdes.high_pass(1,
-      self.samp_rate, self.hp_cutoff, self.transition, firdes.WIN_HAMMING, 6.76)))
+      samp_rate, hp_cutoff, transition, firdes.WIN_BLACKMAN, 6.76)))
   states:
     bus_sink: false
     bus_source: false
@@ -218,7 +265,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 12.0]
+    coordinate: [187, 9]
     rotation: 0
     state: disabled
 - name: lp_cutoff
@@ -233,7 +280,7 @@ blocks:
     start: '1000'
     step: '1000'
     stop: '16000'
-    value: '14000'
+    value: '9000'
     widget: counter_slider
   states:
     bus_sink: false
@@ -246,8 +293,8 @@ blocks:
   id: variable
   parameters:
     comment: "Printing\nLow Pass \ncoefficient"
-    value: 'print("\nThis is Low Pass coefficient : \t",firdes.low_pass(1, self.samp_rate,
-      self.lp_cutoff, self.transition, firdes.WIN_RECTANGULAR, 6.76))'
+    value: 'print("\nThis is Low Pass coefficient : \t",firdes.low_pass(1, samp_rate,
+      lp_cutoff, transition, firdes.WIN_HAMMING, 6.76))'
   states:
     bus_sink: false
     bus_source: false
@@ -264,7 +311,7 @@ blocks:
 
       (LP)'
     value: print("\nThis is number of Low pass filter taps :- \t",len(firdes.low_pass(1,
-      self.samp_rate, self.lp_cutoff, self.transition, firdes.WIN_RECTANGULAR, 6.76)))
+      samp_rate, lp_cutoff, transition, firdes.WIN_HAMMING, 6.76)))
   states:
     bus_sink: false
     bus_source: false
@@ -366,7 +413,7 @@ blocks:
     samp_rate: samp_rate
     type: fir_filter_fff
     width: transition
-    win: firdes.WIN_HANN
+    win: firdes.WIN_RECTANGULAR
   states:
     bus_sink: false
     bus_source: false
@@ -391,7 +438,7 @@ blocks:
     samp_rate: samp_rate
     type: fir_filter_fff
     width: transition
-    win: firdes.WIN_BLACKMAN
+    win: firdes.WIN_HANN
   states:
     bus_sink: false
     bus_source: false
@@ -470,7 +517,7 @@ blocks:
     samp_rate: samp_rate
     type: fir_filter_fff
     width: transition
-    win: firdes.WIN_HAMMING
+    win: firdes.WIN_BLACKMAN
   states:
     bus_sink: false
     bus_source: false
@@ -494,7 +541,7 @@ blocks:
     samp_rate: samp_rate
     type: fir_filter_fff
     width: transition
-    win: firdes.WIN_RECTANGULAR
+    win: firdes.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
