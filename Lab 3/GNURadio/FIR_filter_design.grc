@@ -381,7 +381,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    amp: '1'
+    amp: '160'
     comment: Signal Source
     maxoutbuf: '0'
     minoutbuf: '0'
