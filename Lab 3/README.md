@@ -21,7 +21,7 @@ Filtering aims to remove unwanted noise from a signal or separate several source
 
 # GRC Flowgraph 
 
-![png](GNURadio/Filter_Introduction.png)
+![png](GNURadio/Filter_Introduction_grc_v1.png)
 
 ## GRC GUI
 
