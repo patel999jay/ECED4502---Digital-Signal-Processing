@@ -25,7 +25,7 @@ Filtering aims to remove unwanted noise from a signal or separate several source
 
 ## GRC GUI
 
-![png](GNURadio/filter_taps_Introduction_GUI.PNG)
+![png](GNURadio/Filter_GUI.png)
 
  
 #### Ideal filters
