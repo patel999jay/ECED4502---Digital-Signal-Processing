@@ -80,7 +80,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1176, 428.0]
+    coordinate: [1152, 428.0]
     rotation: 0
     state: true
 - name: LP_Filter_Taps
@@ -97,7 +97,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1048, 428.0]
+    coordinate: [984, 428.0]
     rotation: 0
     state: true
 - name: bp_high
@@ -328,7 +328,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 124.0]
+    coordinate: [312, 12.0]
     rotation: 0
     state: enabled
 - name: sps
@@ -340,7 +340,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 252.0]
+    coordinate: [576, 12.0]
     rotation: 0
     state: enabled
 - name: sym_rate
@@ -352,7 +352,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 188.0]
+    coordinate: [208, 12.0]
     rotation: 0
     state: enabled
 - name: transition
@@ -443,7 +443,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [560, 412.0]
+    coordinate: [552, 444.0]
     rotation: 0
     state: true
 - name: blocks_null_sink_0
