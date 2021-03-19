@@ -413,3 +413,4 @@ Detrending means removing the slowly changing trends from a higher frequency sig
 
 ## Reference :
 1. Matti Pastell, "[PyAgEng](http://pyageng.mpastell.com/book/index.html)", 2016.
+2. Dr. Marc Lichtman, "[PySDR: A Guide to SDR and DSP using Python](https://pysdr.org/)"
