@@ -23,7 +23,7 @@ Filtering aims to remove unwanted noise from a signal or separate several source
 
 ![png](GNURadio/Filter_Introduction_grc_v1.png)
 
-If you're looking for newer **version 3.9** flowgraph, go to `GNURadio(v3.9)/FIR_filter_design.grc`.
+- If you're looking for newer **version 3.9** flowgraph, go to `GNURadio(v3.9)/FIR_filter_design.grc`.
 
 ## GRC GUI
 
