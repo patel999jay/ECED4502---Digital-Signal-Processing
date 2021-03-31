@@ -8,4 +8,4 @@ ECED4502 - Digital Signal Processing (Sec 01) - Winter 2021
 | **[Lab 1](https://github.com/patel999jay/ECED4502---Digital-Signal-Processing/tree/main/Lab%201)**  | Spectral Representation of Finite Length Signals |
 | **[Lab 2](https://github.com/patel999jay/ECED4502---Digital-Signal-Processing/tree/main/Lab%202)**  | Spectrum Aliasing and Foldback using GNURadio |
 | **[Lab 3](https://github.com/patel999jay/ECED4502---Digital-Signal-Processing/tree/main/Lab%203)**  | Filters |
-| **[Lab 3](https://github.com/patel999jay/ECED4502---Digital-Signal-Processing/tree/main/Lab%204)**  | Infinite Impulse Response Filtering in Matlab |
+| **[Lab 4](https://github.com/patel999jay/ECED4502---Digital-Signal-Processing/tree/main/Lab%204)**  | Infinite Impulse Response Filtering in Matlab |
