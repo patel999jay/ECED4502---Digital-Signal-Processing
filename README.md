@@ -2,6 +2,7 @@
 ECED4502 - Digital Signal Processing (Sec 01) - Winter 2021
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/patel999jay/ECED4502---Digital-Signal-Processing/main)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
