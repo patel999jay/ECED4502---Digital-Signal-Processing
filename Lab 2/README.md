@@ -15,6 +15,7 @@ GNU Radio is supported on almost all the major platforms:
 # **New Installation!**
 
 ## **Windows**
+[Download GR 3.9 Beta Now **GR 3.9.0.0**](http://www.gcndevelopment.com/gnuradio/downloads/installers/v3.9.0.0/gnuradio_3.9.0.0beta_win64.zip)
 [Download GR 3.8 Now **`(GR 3.8.2.0 py3.9)`** ](http://www.gcndevelopment.com/gnuradio/downloads/installers/v3.8.2.1/gnuradio_3.8.2.0_win64.msi)
 
   - The binaries should work with: 64-bit Windows 7/8/10.
